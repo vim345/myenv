@@ -50,6 +50,7 @@ nvim +PlugInstall +qall
 # Setup tmux
 cd "$dir" || exit 1
 git clone https://github.com/vim345/tmux.git
+git clone https://github.com/tmux-plugins/tpm.git "tmux/plugins/tpm"
 
 TMUX_FILE="$HOME/.tmux.conf"
 if test -f "$TMUX_FILE"; then
