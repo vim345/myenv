@@ -50,3 +50,10 @@ nvim +PlugInstall +qall
 # Setup tmux
 cd "$dir" || exit 1
 git clone https://github.com/vim345/tmux.git
+
+if grep -q "source $dir/tmux/tmux.conf" ~/.tmux.conf
+then
+	echo "Not setting tmux config anymore."
+else
+	echo "source $dir/tmux/tmux.conf" >> ~/.tmux.conf
+fi
