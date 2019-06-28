@@ -1,6 +1,12 @@
 #!/bin/bash
 # A script to setup my zsh and neovim setups. Feel free to use it.
 
+if [ "$SHELL" != "/bin/zsh" ]
+then
+	echo "You have to be using zsh before running this command"
+	exit 1
+fi
+
 dir=$1
 if [ ! -d "$dir" ]
 then
@@ -8,6 +14,8 @@ then
 	exit 1
 fi
 
+
+# Setup zsh.
 cd "$dir" || exit 1
 
 git clone https://github.com/vim345/oh-my-zsh.git
@@ -29,3 +37,11 @@ else
 	echo "export ZSH=$dir/oh-my-zsh" >> ~/.zshrc
 	echo "source \$ZSH/base.sh" >> ~/.zshrc
 fi
+
+source ~/.zshrc
+
+# Setup nvim environment now.
+cd ~/.config/ || exit 1
+
+git clone https://github.com/vim345/nvim.git
+nvim +PlugInstall +qall
