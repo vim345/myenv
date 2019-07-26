@@ -1,5 +1,30 @@
 #!/bin/bash
-# A script to setup my zsh and neovim setups. Feel free to use it.
+# A script to setup my development environment which consists of zsh, neovim, and tmux. Feel free to use it.
+
+if ! [ -x "$(command -v fzf)" ]; then
+  echo "Error: fzf is not installed." >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v tmux)" ]; then
+  echo "Error: tmux is not installed." >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v nvim)" ]; then
+  echo "Error: neovim is not installed." >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v git)" ]; then
+  echo "Error: git is not installed." >&2
+  exit 1
+fi
+
+if ! [ -x "$(command -v ctags)" ]; then
+  echo "Error: ctags is not installed." >&2
+  exit 1
+fi
 
 if [ "$SHELL" != "/bin/zsh" ]
 then
@@ -10,7 +35,7 @@ fi
 dir=$1
 if [ ! -d "$dir" ]
 then
-	echo "Directory $dir does not exist."
+	echo "Directory $dir does not exist." >&2
 	exit 1
 fi
 
