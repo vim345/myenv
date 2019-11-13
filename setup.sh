@@ -64,9 +64,15 @@ else
 fi
 
 source ~/.zshrc
+mkdir -p ~/.cache/zsh/
 
 # Setup nvim environment now.
-cd ~/.config/ || exit 1
+pip install neovim
+config_dir="~/.config"
+if [[ ! -e $config_dir ]]; then
+    mkdir $config_dir
+fi
+cd $config_dir || exit 1
 
 git clone https://github.com/vim345/nvim.git
 nvim +PlugInstall +qall
