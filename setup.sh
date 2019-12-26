@@ -1,6 +1,26 @@
 #!/bin/bash
 # A script to setup my development environment which consists of zsh, neovim, and tmux. Feel free to use it.
 
+# Install Dependencies.
+# On Debian based OSs.
+if which apt-get; then
+    # Installing dependencies for Debian based OS.
+    sudo apt-get install fzf tmux neovim python3-neovim git ctags ripgrep
+fi
+
+# On Arch Linux based OSs.
+if which pacman; then
+    # Installing dependencies for Debian based OS.
+    sudo pacman -S fzf tmux neovim python-pynvim git ctags ripgrep
+fi
+
+# On Mac
+if which brew; then
+    # Installing dependencies for Debian based OS.
+    brew install fzf tmux neovim git ctags ripgrep
+fi
+
+
 if ! [ -x "$(command -v fzf)" ]; then
   echo "Error: fzf is not installed." >&2
   exit 1
