@@ -1,5 +1,5 @@
 #!/bin/bash
-# A script to setup my development environment which consists of zsh, neovim, and tmux. Feel free to use it.
+# A script to setup my development environment which consists of zsh, neovim, gitconfig, and tmux. Feel free to use it.
 
 # Install Dependencies.
 # On Debian based OSs.
@@ -83,16 +83,16 @@ else
 	echo "source \$ZSH/base.sh" >> ~/.zshrc
 fi
 
-source ~/.zshrc
+source $HOME/.zshrc
 mkdir -p ~/.cache/zsh/
 
 # Setup nvim environment now.
 pip install neovim
-config_dir="~/.config"
+config_dir=$HOME/.config
 if [[ ! -e $config_dir ]]; then
-    mkdir $config_dir
+    mkdir "$config_dir"
 fi
-cd $config_dir || exit 1
+cd "$config_dir" || exit 1
 
 git clone https://github.com/vim345/nvim.git
 nvim +PlugInstall +qall
@@ -114,3 +114,8 @@ if test -f "$TMUX_FILE"; then
 else
 	echo "source $dir/tmux/tmux.conf" > "$TMUX_FILE"
 fi
+
+# Setup gitconfig
+cd "$dir" || exit 1
+git clone https://github.com/vim345/gitconfig.git
+ln -s "$dir/gitconfig/.gitconfig" "$HOME"
