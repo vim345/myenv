@@ -118,4 +118,4 @@ fi
 # Setup gitconfig
 cd "$dir" || exit 1
 git clone https://github.com/vim345/gitconfig.git
-ln -s "$dir/gitconfig/.gitconfig" "$HOME"
+ln -s "$PWD/gitconfig/gitconfig/.gitconfig" "$HOME"
