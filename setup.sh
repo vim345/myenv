@@ -3,19 +3,19 @@
 
 # Install Dependencies.
 # On Debian based OSs.
-if which apt-get; then
+if [ -x "$(command -v apt-get)" ]; then
     # Installing dependencies for Debian based OS.
     sudo apt-get install fzf tmux neovim python3-neovim git ctags ripgrep
 fi
 
 # On Arch Linux based OSs.
-if which pacman; then
+if [ -x "$(command -v pacman)" ]; then
     # Installing dependencies for Debian based OS.
     sudo pacman -S fzf tmux neovim python-pynvim git ctags ripgrep
 fi
 
 # On Mac
-if which brew; then
+if [ -x "$(command -v brew)" ]; then
     # Installing dependencies for Debian based OS.
     brew install fzf tmux neovim git ctags ripgrep
 fi
