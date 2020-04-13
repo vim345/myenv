@@ -11,7 +11,7 @@ fi
 # On Arch Linux based OSs.
 if [ -x "$(command -v pacman)" ]; then
     # Installing dependencies for Debian based OS.
-    sudo pacman -S fzf tmux neovim python-pynvim git ctags ripgrep
+    sudo pacman -S fzf tmux neovim python-pynvim git ctags ripgrep powerline
 fi
 
 # On Mac
