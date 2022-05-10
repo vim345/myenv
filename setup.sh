@@ -46,7 +46,7 @@ if ! [ -x "$(command -v ctags)" ]; then
   exit 1
 fi
 
-if [ "$SHELL" != "/usr/bin/zsh" ] || [ "$SHELL" != "/bin/zsh" ]; then
+if [ "$SHELL" != '/usr/bin/zsh' ] && [ "$SHELL" != '/bin/zsh' ]; then
 	echo "You have to be using zsh before running this command"
 	exit 1
 fi
